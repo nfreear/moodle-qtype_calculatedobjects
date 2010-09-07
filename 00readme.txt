@@ -49,14 +49,4 @@ TODO/ limitations:
 * If there's demand, translation.
 
 
-Acknowledgements:
-- images sourced from Wikimedia:
-* http://commons.wikimedia.org/wiki/Category:Food_and_drink_icons
-* http://commons.wikimedia.org/wiki/File:Source_preview_FRUITS.jpg
-* http://commons.wikimedia.org/wiki/File:Tulliana_cookie.png
-- (icon sourced from Iconarchive):
-* http://www.iconarchive.com/show/food-icons-by-aha-soft/apple-icon.html - See license.
-* http://www.iconarchive.com/icons/aha-soft/food/license.txt
-
-
 [End.]
