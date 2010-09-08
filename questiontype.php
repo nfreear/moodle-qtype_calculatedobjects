@@ -1,4 +1,4 @@
-<?php  // $Id: questiontype.php,v 1.1 2010/09/04 11:36:31 deraadt Exp $
+<?php //$Id: questiontype.php,v 1.2 2010/09/08 21:14:57 nfreear Exp $
 /**
 * The CALCULATED OBJECTS question type.
 *
@@ -22,19 +22,22 @@ class question_calculatedobjects_qtype extends question_calculated_qtype {
     //(...extends question_dataset_dependent_questiontype)
 
     // We have images for the following objects.
-    // (Extend? Allow people to upload images/theme?)
-    #protected static $wildcards = array(
-    #    'apple', 'orange', 'pear', 'pineapple', 'walnut', 'coffee', 'cookie'
-    #);
-
     protected static $default_pix = array(
-        'apple' => 'apple-75.png',
+        'apple' => 'apple-green-chrisdesign-75.png',
         'orange'=> 'orange-juice-75.png',
         'pear'  => 'pear-75.png',
         'pineapple'=>'pineapple-75.png',
         'cookie'=> 'cookie-tulliana-75.png',
         'coffee'=> 'coffee-icon-75.png',
         'walnut'=> 'walnut-60.png',
+        // New objects.
+        'cup'   => 'coffee-icon-75.png',
+        'redapple' => 'apple-red-80.png',
+        'greenapple'=>'apple-green-chrisdesign-75.png',
+        'tomato'=> 'tomato-torrent-80.png',
+        'cake'  => 'choc-cake-ill-70.png',
+        'car'   => 'car-dodge-challenger-90.png',
+        'pencil'=> 'pencil-red-emblem-75.png',
     );
 
     /*// Moodle 2.0 specific - test!
@@ -97,7 +100,6 @@ class question_calculatedobjects_qtype extends question_calculated_qtype {
 
         $qtext  = $numericalquestion->questiontext;
         $dataset= $state->options->dataset;
-#var_dump($state->options, $numericalquestion);
 
         // Find the first math operator/symbol (+-*/)
         // - prevent mis-matches on <br /> etc. below.
@@ -136,11 +138,13 @@ class question_calculatedobjects_qtype extends question_calculated_qtype {
                 global $CFG;
                 $src = "$CFG->wwwroot/question/type/calculatedobjects/pix/$pix";
                 $item = "<img\n alt='' src='$src' />";
-
                 $items = str_repeat($item, $multiply);
-                $plains[] = "<i>$multiply $name</i>"; #i18n.
+
+                // Internationalization.
+                $plains[] = "<i>$multiply ".
+                    get_string($class, 'qtype_calculatedobjects')."</i>";
             }
-            $objects[] = "<div align='center'>$items</div>";
+            $objects[] = "<div align='center' class='$class'>$items</div>";
             $patterns[]= '{'.$key.'}';
         }
         // Create the objects/pictures string.
@@ -149,7 +153,7 @@ class question_calculatedobjects_qtype extends question_calculated_qtype {
         $plain_str = preg_replace("#\[[\+\-\*\/%]\]#", '', $plain_str);
 
         $numericalquestion->questiontext = <<<EOT
-        <h3 class="qco-text" style="text-align:center">$plain_str</h3>
+        <h3 class="qco-text">$plain_str</h3>
         <div class="qco-objects $classes">$object_str
           <br style="clear:both;height:1px;" /></div>
       
@@ -175,7 +179,7 @@ EOT;
     // filters options that are currently not accepted by calculated
     // It also determines a default selection...
     //$renameabledatasets not implemented anmywhere
-        list($options, $selected) = parent::dataset_options($form, $name,'','qtype_calculatedobjects');  #@TODO.N.
+        list($options, $selected) = parent::dataset_options($form, $name,'','qtype_calculatedobjects');
   //  list($options, $selected) = $this->dataset_optionsa($form, $name);
 
         foreach ($options as $key => $whatever) {

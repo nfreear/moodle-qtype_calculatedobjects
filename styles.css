@@ -1,13 +1,21 @@
 /** Calculated Objects qtype
  */
-.qco-objects, .qco-text{font-family:'Comic Sans MS',serif; color:#040; font-size:1.3em;}
-.qco-objects { border:1px solid #ccc; padding:5px 0; }
-.qco-objects div, .qco-objects center  { width:45%; float:left; }
+.qco-objects, .qco-text, .que.calculatedobjects .prompt,
+.que.calculatedobjects .answer input, .que.calculatedobjects [type=submit]{
+  font:1.3em 'Comic Sans MS',serif; color:#242;
+}
+.que.calculatedobjects .answer{width:18em; border:1px solid #7a7; -moz-border-radius:4px;}
+.que.calculatedobjects .answer input{width:98%; text-align:center; color:#226;}
+.que.calculatedobjects .prompt{ padding:0 0.5em; }
+.que.calculatedobjects [type=submit]{ margin-left:.5em; }
+h3.qco-text{ font-weight:bold; margin:0 3em .7em .5em; }
+.qco-objects{border:1px solid #bcb; -moz-border-radius:8px; border-radius:8px; padding:5px 0;}
+.qco-objects div { width:45%; float:left; }
+.qco-objects .car img { padding:5px 0 25px; }
 .qco-objects.vertical div{ width:90%; margin:0 auto;float:none; }
-.qco-objects .op{ width:9%; float:left; text-align:center; font-size:3.2em; }
+.qco-objects .op{width:9%; float:left; text-align:center; font-size:3.2em;}
 .qco-objects .op.vertical { float:none; font-size:1em; }
 .qco-objects hr.o{ width:50%; height:5px; background:#666; }
 .qco-objects img{ vertical-align:middle; }
 .qco-objects .big{font-size:2em; font-style:normal;}
-.qco-text { margin:0 3.5em .8em; }
 

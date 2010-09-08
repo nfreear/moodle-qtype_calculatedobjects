@@ -2,7 +2,8 @@ Calculated Objects question type.
 
 This a Moodle question type which extends the 'calculated' question type.
 Teachers can create questions like "How much is {apples} + {oranges}?"
-- where the {wildcards} become M and N x images of apples and oranges respectively. It is aimed at pre/primary-school students (age 3-9).
+- where the {wildcards} become M and N x images of apples and oranges respectively.
+It is aimed at pre/primary-school students (approximately age 3-9).
 
 Note, this question type uses the database tables of the 'calculated' question type.
 
@@ -10,7 +11,9 @@ Tested with Moodle 1.9.7.
 
 (Author N.D.Freear, 14 August 2010.)
 
-Currently supported wildcards:  apple, orange, pear, pineapple, walnut, coffee, cookie (each with or without an 's', eg. {cookies} and with an optional differentiator, eg. {apples_1} + {apples_2}).
+Currently supported wildcards:
+ apple, redapple, orange, pear, pineapple, tomato, walnut, cookie, cake, cup, pencil
+(each with or without an 's', eg. {cookies} and with an optional differentiator, eg. {apples_1} + {apples_2}).
 
 Changes, 27 August-2 September 2010:
 1. Renamed language string file, for auto-include (from CONTRIB-2308).
@@ -48,5 +51,7 @@ TODO/ limitations:
 * If there's demand, add ability to use custom icons/images.
 * If there's demand, translation.
 
+
+Acknowledgements - see file, pix/acknowledgements.txt
 
 [End.]

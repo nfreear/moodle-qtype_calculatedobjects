@@ -1,4 +1,4 @@
-Calculated Objects - image acknowledgements.
+Calculated Objects - acknowledgements.
 
 - Images sourced from Wikimedia:
 * http://commons.wikimedia.org/wiki/Category:Food_and_drink_icons
@@ -7,6 +7,16 @@ Calculated Objects - image acknowledgements.
 - (icon sourced from Iconarchive):
 * http://www.iconarchive.com/show/food-icons-by-aha-soft/apple-icon.html - See license.
 * http://www.iconarchive.com/icons/aha-soft/food/license.txt
+
+
+* http://commons.wikimedia.org/wiki/File:Chrisdesign_Photorealistic_Green_Apple.svg - Open Clip Art Library, CC Public Domain.
+* http://commons.wikimedia.org/wiki/File:RedDelicious.jpg
+* http://commons.wikimedia.org/wiki/File:Dodge_Challenger_%28source%29-2.png
+* http://commons.wikimedia.org/wiki/File:Choc_cake_ill_01.svg
+* http://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Choc_cake_ill_01.svg/70px-Choc_cake_ill_01.svg.png
+* http://commons.wikimedia.org/wiki/File:Tomato-Torrent-Icon.png - (c)Tomato Torrent, BSD.
+* http://commons.wikimedia.org/wiki/File:500px-Xmas_tree_animated.gif
+* http://commons.wikimedia.org/wiki/File:Emblem-pen-new.svg
 
 
 [End.]
