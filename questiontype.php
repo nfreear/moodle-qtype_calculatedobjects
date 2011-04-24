@@ -50,8 +50,12 @@ class question_calculatedobjects_qtype extends question_calculated_qtype {
         return parent::__construct();
     }*/
 
-    function name() {
+    public function name() {
         return 'calculatedobjects';
+    }
+
+    public function requires_qtypes() {
+        return array('numerical');
     }
 
     /** Substitute variables in questiontext to give a copy of
@@ -178,18 +182,20 @@ EOT;
     // Takes datasets from the parent implementation but
     // filters options that are currently not accepted by calculated
     // It also determines a default selection...
-    //$renameabledatasets not implemented anmywhere
+    //$renameabledatasets not implemented anywhere
         list($options, $selected) = parent::dataset_options($form, $name,'','qtype_calculatedobjects');
   //  list($options, $selected) = $this->dataset_optionsa($form, $name);
 
+        $type = 1 ; // only type = 1 (i.e. old 'LITERAL') has ever been used
+
         foreach ($options as $key => $whatever) {
-            if (!ereg('^'.LITERAL.'-', $key) && $key != '0') {
+            if (!ereg('^'.$type.'-', $key) && $key != '0') {
                 unset($options[$key]);
             }
         }
         if (!$selected) {
             if ($mandatory){
-            $selected = LITERAL . "-0-$name"; // Default
+                $selected = "$type-0-$name"; // Default
             }else {
                 $selected = "0"; // Default
             }
@@ -202,6 +208,7 @@ EOT;
         $formula = NULL;
         #$formula = question_dataset_dependent_questiontype::substitute_variables($str, $dataset);
         $formula = parent::substitute_variables($str, $dataset);
+        #$formula = strip_tags($formula);
 
         #if ($error = qtype_calculatedobjects_find_formula_errors($formula)) {
         #    return $error;
@@ -211,6 +218,8 @@ EOT;
             $str = '';
         } else if ($formula === '*'){
             $str = '*';
+        } elseif (false!==strpos($formula, '<p')) { //strip_tags($formula) != $formula) {
+
         } else {
             eval('$str = '.$formula.';');
         }
@@ -397,8 +406,7 @@ function qtype_calculatedobjects_find_formula_errors($formula) { #@TODO.N.
             // Simple parenthesis
             case '':
                 if ($regs[4] || strlen($regs[3])==0) {
-var_dump(">> E 1");
-                    return get_string('__illegalformulasyntax', 'quiz', $regs[0]);
+                    return get_string('__illegalformulasyntax', 'quiz', $regs[0]); #@TODO.N.
                 }
                 break;
 
@@ -459,8 +467,7 @@ var_dump(">> E 1");
     }
 
     if (ereg("[^$safeoperatorchar.0-9eE]+", $formula, $regs)) {
-var_dump(">> E 2");
-        return get_string('__illegalformulasyntax', 'quiz', $regs[0]);
+        return get_string('__illegalformulasyntax', 'quiz', $regs[0]); #@TODO.N.
     } else {
         // Formula just might be valid
         return false;
