@@ -4,8 +4,8 @@
 .que.calculatedobjects .answer input, .que.calculatedobjects [type=submit]{
   font:1.3em 'Comic Sans MS',serif; color:#242;
 }
-.que.calculatedobjects .answer{width:18em; border:1px solid #7a7; -moz-border-radius:4px;}
-.que.calculatedobjects .answer input{width:98%; text-align:center; color:#226;}
+.que.calculatedobjects ._answer{width:18em; border:1px solid #7a7; -moz-border-radius:4px;}
+.que.calculatedobjects fieldset.answer input{width:98%; text-align:center; color:#226;}
 .que.calculatedobjects .prompt{ padding:0 0.5em; }
 .que.calculatedobjects [type=submit]{ margin-left:.5em; }
 h3.qco-text{ font-weight:bold; margin:0 3em .7em .5em; }
