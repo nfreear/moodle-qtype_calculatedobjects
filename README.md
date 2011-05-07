@@ -28,10 +28,12 @@ Links
 Changes
 -------
 24 April-7 May 2011:
+
 * Moving to Github.
 * Adding Moodle 2 support.
 
 27 August-2 September 2010:
+
 1. Renamed language string file, for auto-include (from CONTRIB-2308).
 2. Renamed help file, for auto-include.
 3. Added 2 missing language strings.
@@ -45,21 +47,23 @@ Changes
 
 Install
 -------
-1. Download and unzip the archive. Copy the directory 'calculatedobjects' into the directory {MOODLE}/question/type/ on your server.
-2. Visit the administrator 'notifications' page, http://moodle.example.org/admin/ - there are no database changes for this question type.
+1. Download and unzip the archive. Copy the directory 'calculatedobjects' into the directory `{MOODLE}/question/type/` on your server.
+2. Visit the administrator 'notifications' page, `http://moodle.example.org/admin/` - there are no database changes for this question type.
 
 (Note, English language strings, help file, and styles will be auto-included.)
 
 Upgrade
 -------
 To upgrade from previous versions:
-1. Delete the 'question/type/calculatedobjects' directory.
-2. Delete '{MOODLE}/lang/en_utf8/help/quiz/calculatedobjects.html
+
+1. Delete the `question/type/calculatedobjects` directory.
+2. Delete `{MOODLE}/lang/en_utf8/help/quiz/calculatedobjects.html`
 3. Follow the install instructions above.
 
 Notes
 -----
 TODO/ limitations:
+
 * Add support for multiple operators (currently only 1 supported).
 * Test with browsers.
 * More testing of backup and restore.
@@ -75,8 +79,9 @@ Calculated Objects question type. Copyright © 2010 Nicholas Freear.
 
 * License: <http://gnu.org/copyleft/gpl.html> GNU GPL v2 or later.
 
-Images. Various
-* see <pix/acknowledgements.txt>
+Images. Various,
+
+* See, pix/acknowledgements.txt 
 
 
 [End.]
