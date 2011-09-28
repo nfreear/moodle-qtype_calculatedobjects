@@ -1,5 +1,7 @@
 <?php //$Id: qtype_calculatedobjects.php,v 1.2 2010/09/08 21:14:57 nfreear Exp $
 
+$string['pluginname'] = 'Calculated Objects';
+
 // Language strings for creating/ editing questions.
 $string['addingcalculatedobjects'] = 'Adding a Calculated Objects question';
 $string['calculatedobjects']       = 'Calculated Objects';

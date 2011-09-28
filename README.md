@@ -17,7 +17,8 @@ Currently supported wildcards:
 
 Links
 -----
-* Moodle plugin page: <http://moodle.org/mod/data/view.php?rid=4143>
+* Moodle plugin entry: <http://moodle.org/plugins/view.php?plugin=qtype_calculatedobjects>
+* (Old plugin page: <http://moodle.org/mod/data/view.php?rid=4143>)
 * Wiki: <http://docs.moodle.org/en/Calculated_Objects_question_type>
 * Discussion: <http://moodle.org/mod/forum/discuss.php?d=156605>
 * Bugs: <http://tracker.moodle.org/browse/CONTRIB/component/10720>
@@ -25,8 +26,8 @@ Links
 * (Old code, CVS: <http://cvs.moodle.org/contrib/plugins/question/type/calculatedobjects/>)
 * Demo: <http://freear.org.uk/moodle>
 
-Changes
--------
+Releases Notes
+--------------
 24 April-7 May 2011:
 
 * Moving to Github.
