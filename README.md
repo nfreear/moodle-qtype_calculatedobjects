@@ -28,10 +28,14 @@ Links
 
 Releases Notes
 --------------
+13 December 2011:
+
+* Fixed requires bug in version.php [CONTRIB-3301].
+
 24 April-7 May 2011:
 
 * Moving to Github.
-* Adding Moodle 2 support.
+* Adding Moodle 2 support [CONTRIB-2888].
 
 27 August-2 September 2010:
 
