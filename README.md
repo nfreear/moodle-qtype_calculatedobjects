@@ -15,6 +15,15 @@ Currently supported wildcards:
  apple, redapple, orange, pear, pineapple, tomato, walnut, cookie, cake, cup, pencil
 (each with or without an 's', eg. {cookies} and with an optional differentiator, eg. `{apples_1} + {apples_2}`).
 
+
+Book
+----
+This plugin was initially developed to support the book
+"Moodle 2 for Teaching 4-9 Year Olds", by Nicholas Freear,
+published 2011 by Packt Publishing [isbn:978-1-84951-328-9]
+<http://bit.ly/packt-moodle4-9-book>
+
+
 Links
 -----
 * Moodle plugin entry: <http://moodle.org/plugins/view.php?plugin=qtype_calculatedobjects>
