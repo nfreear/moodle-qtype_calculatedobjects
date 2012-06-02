@@ -13,14 +13,17 @@ defined('MOODLE_INTERNAL') || die();
 ///  Called by moodle_needs_upgrading() and /admin/index.php
 // See: http://docs.moodle.org/dev/version.php
 
-$plugin->component= 'qtype_calculatedobjects';
-$plugin->version  = 2011121300;  // The current module version (Date: YYYYMMDDXX)
 
-#$plugin->requires = 2010090501;
-$plugin->requires = 2007101000;  // Moodle 1.9.7 (Build: 20091126)
+$plugin->component = 'qtype_calculatedobjects';
+$plugin->version  = 2011051900;
+//N: $plugin->version   = 2011102700;
+
+$plugin->requires = 2011051212;
+//N: $plugin->requires  = 2011102700;
 $plugin->dependencies = array(
-    'qtype_calculated' => 2006032200,
+    'qtype_calculated' => 2011051900,
+    //'qtype_calculated' => 2011102700,
 );
 $plugin->cron     = 0;           // Period for cron to check this module (secs)
-$plugin->release  = '0.96 (Build: 2011121300)'; // User-friendly version number
-$plugin->maturity = MATURITY_RC;
+$plugin->release  = '0.98 (Build: 2012060200)'; // User-friendly version number
+$plugin->maturity  = MATURITY_BETA;

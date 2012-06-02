@@ -18,7 +18,9 @@
 require_once("$CFG->dirroot/question/type/calculated/questiontype.php");
 
 
-class question_calculatedobjects_qtype extends question_calculated_qtype {
+// Moodle 2.1+ compatible class names.
+class qtype_calculatedobjects extends qtype_calculated {
+//N: class question_calculatedobjects_qtype extends question_calculated_qtype {
     //(...extends question_dataset_dependent_questiontype)
 
     // We have images for the following objects.
@@ -40,7 +42,7 @@ class question_calculatedobjects_qtype extends question_calculated_qtype {
         'pencil'=> 'pencil-red-emblem-75.png',
     );
 
-    /*// Moodle 2.0 specific - test!
+    // Moodle 2.0 specific - test!
     public function __construct() {
         global $PAGE;
         if (isset($PAGE->requires)) {
@@ -48,14 +50,15 @@ class question_calculatedobjects_qtype extends question_calculated_qtype {
             'question/type/calculatedobjects/styles.css');#css.php?d='.$data->id)
         }
         return parent::__construct();
-    }*/
+    }
 
     public function name() {
         return 'calculatedobjects';
     }
 
     public function requires_qtypes() {
-        return array('numerical');
+        return array('calculated');
+        //N: return array('numerical');
     }
 
     /** Substitute variables in questiontext to give a copy of
@@ -283,7 +286,14 @@ EOT;
 //////////////////////////////////////////////////////////////////////////
 //// INITIATION - Without this line the question type is not in use... ///
 //////////////////////////////////////////////////////////////////////////
-question_register_questiontype(new question_calculatedobjects_qtype());
+
+if (function_exists('question_register_questiontype')) {
+    //N: Moodle < 2.1 compatibility.
+    class question_calculatedobjects_qtype extends qtype_calculatedobjects {}
+
+    question_register_questiontype(new question_calculatedobjects_qtype());
+}
+
 
 function qtype_calculatedobjects_calculate_answer($formula, $individualdata,
         $tolerance, $tolerancetype, $answerlength, $answerformat='1', $unit='') {
