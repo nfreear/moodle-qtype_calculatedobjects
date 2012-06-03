@@ -47,6 +47,7 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
      */
 	public function formulation_and_controls(question_attempt $qa,
             question_display_options $options) {
+        global $CFG;
 
         $object_pix = self::$default_pix;
 
@@ -119,15 +120,25 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
         #$plain_str = str_replace($patterns, $plains, $qtext);
         #$plain_str = preg_replace("#\[[\+\-\*\/%]\]#", '', $plain_str);
 
+
+        $qtext_answer = parent::formulation_and_controls($qa, $options);
+
+
         #<h3 class="qco-text">$plain_str</h3>
 
-        $objectstext = <<<EOT
-
+        $qco_objects = <<<EOT
         <div class="qco-objects $classes">$object_str
         <br style="clear:both;height:1px;" /></div>
-
 EOT;
 
-    	return $objectstext . parent::formulation_and_controls($qa, $options);
+        // Optionally, start with the pictures then the text question..
+        if (isset($CFG->calculatedobjects_pix_first)) {
+            return $qco_objects . $qtext_answer;
+        }
+
+        // Default: put the pictures between the question and the answer block.
+        $ablock_start = '<div class="ablock">';
+        return str_replace($ablock_start,
+    	    $qco_objects . $ablock_start, $qtext_answer);
     }
 }
