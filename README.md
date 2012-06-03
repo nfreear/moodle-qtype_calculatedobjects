@@ -37,6 +37,10 @@ Links
 
 Releases Notes
 --------------
+2 - (approx.) 5 June 2012:
+
+* Upgrade to Moodle 2.1 question engine [CONTRIB-3684].
+
 13 December 2011:
 
 * Fixed requires bug in version.php [CONTRIB-3301].
