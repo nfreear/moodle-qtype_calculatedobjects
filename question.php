@@ -113,15 +113,15 @@ class qtype_calculatedobjects_variable_substituter
     }
 
 
-    /**
-     * Todo: internationalize.
+    /** Substitute or this case append the search {apples} to the value (4).
+     * @return string
      */
     protected function substitute_values_pretty($text) {
 
         if (FALSE !== strpos($text, '{')) {
             #$this->_copy_questiontext = $text;
 
-            // Find any [+] operators - a bit of a hack!
+            // Take a copy of any [+] operators - a bit of a hack!
             if (preg_match('#[^<]([\+\-\*\/%])[^>]#', $text, $regs_op)) {
                 $this->_maths_operators_r = $regs_op;
             }
@@ -131,7 +131,13 @@ class qtype_calculatedobjects_variable_substituter
 
             // Append the search eg. {apples} to the value, eg. 4.
             foreach ($this->prettyvalue as $idx => $pvalue) {
-                $this->prettyvalue[$idx] .= ' '. $this->search[$idx];
+                $obj = $this->search[$idx];
+                if (preg_match('#\{(\w+?)s?(_\w)?\}#', $obj, $matches)) {
+                    // Translate/ internationalize.
+                    $obj = get_string($matches[1], 'qtype_calculatedobjects');
+                }
+                //ELSE: error?
+                $this->prettyvalue[$idx] .= ' <i>'. $obj .'</i>';
             }
         }
 
