@@ -39,6 +39,14 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
         'pencil'=> 'pencil-red-emblem-75.png',
     );
 
+    /**
+     * Get a list of available objects, joined with $glue.
+     * (Used in [QTYPE]/lang/*-/qtype_calculatedobjects.php)
+     * @return string
+     */
+    public static function object_names_implode($glue = ', ') {
+        return implode($glue, array_keys(self::$default_pix));
+    }
 
     /**
      * Substitute variables in questiontext to give a copy of
