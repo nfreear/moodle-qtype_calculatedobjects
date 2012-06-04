@@ -131,6 +131,13 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
 
         $qtext_answer = parent::formulation_and_controls($qa, $options);
 
+        // HTML5 form validation.
+        if (!isset($CFG->calculatedobjects_html5) || $CFG->calculatedobjects_html5==true) {
+            $hint = get_string('calculatedobjects_inputhint', 'qtype_calculatedobjects');
+            $qtext_answer = preg_replace('#(name="q\d+:\d+_answer")#',
+                '$1 pattern="-?\d{1,3}(\.\d*)?" required title="'. $hint .'"',
+                $qtext_answer);
+        }
 
         #<h3 class="qco-text">$plain_str</h3>
 

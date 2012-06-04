@@ -17,6 +17,7 @@ $string['calculatedobjects_help']  =
   . qtype_calculatedobjects_renderer::object_names_implode('<li>')
   . ' </ul></div>';
 $string['editingcalculatedobjects']= 'Editing a Calculated Objects question';
+$string['calculatedobjects_inputhint'] = 'I\'m expecting a number';
 
 $string['mandatoryhdr'] = 'Mandatory wild cards present in answers';
 $string['possiblehdr']  = 'Possible wild cards present only in the question text';
