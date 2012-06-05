@@ -15,15 +15,15 @@ defined('MOODLE_INTERNAL') || die();
 
 
 $plugin->component = 'qtype_calculatedobjects';
-$plugin->version  = 2011051900;
-//N: $plugin->version   = 2011102700;
+$plugin->version  = 2012060500;
 
 $plugin->requires = 2011051212;
+$plugin->requires_human = '2.1.x'; // My idea!
 //N: $plugin->requires  = 2011102700;
 $plugin->dependencies = array(
     'qtype_calculated' => 2011051900,
     //'qtype_calculated' => 2011102700,
 );
 $plugin->cron     = 0;           // Period for cron to check this module (secs)
-$plugin->release  = '0.98 (Build: 2012060200)'; // User-friendly version number
+$plugin->release  = '2.1.x-1.0 (Build: 2012060500)'; // User-friendly version number
 $plugin->maturity  = MATURITY_BETA;

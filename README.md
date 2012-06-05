@@ -8,11 +8,11 @@ It is aimed at pre/primary-school students (approximately age 3-9).
 
 Note, this question type uses the database tables of the 'calculated' question type.
 
-Tested with Moodle 1.9.7, Moodle 2.0.2.
+Tested with Moodle 1.9.7, 2.0.2 and 2.2.3.
 
 
 Currently supported wildcards:
- apple, redapple, orange, pear, pineapple, tomato, walnut, cookie, cake, cup, pencil
+ apple, redapple, orange, pear, pineapple, tomato, walnut, cookie, cake, cup, car pencil
 (each with or without an 's', eg. {cookies} and with an optional differentiator, eg. `{apples_1} + {apples_2}`).
 
 
@@ -35,20 +35,33 @@ Links
 * (Old code, CVS: <http://cvs.moodle.org/contrib/plugins/question/type/calculatedobjects/>)
 * Demo: <http://freear.org.uk/moodle>
 
+Releases
+--------
+Note, the version number 2.1.x-1.0 indicates that this is version 1.0 of the
+plugin for version 2.1.x onwards of Moodle (this follows the Drupal model).
+
+There are currently two branches of development:
+
+* MOODLE_21_STABLE - for Moodle 2.1.x onwards, including Moodle 2.2.x - active development;
+* MOODLE_20_STABLE - for Moodle 1.9.x and Moodle 2.0.x - bug fixes only.
+
 Releases Notes
 --------------
-2 - (approx.) 5 June 2012:
+5 June 2012 / 2.1.x-1.0-beta:
 
-* Upgrade to Moodle 2.1 question engine [CONTRIB-3684].
+* Add HTML5 form validation to the student interface [CONTRIB-3687];
+* Upgrade to Moodle 2.1 question engine [CONTRIB-3684];
+* Improvements to the popup help for authors.
 
-13 December 2011:
+13 December 2011 / 0.96 RC:
 
 * Fixed requires bug in version.php [CONTRIB-3301].
 
 24 April-7 May 2011:
 
 * Moving to Github.
-* Adding Moodle 2 support [CONTRIB-2888].
+* Adding Moodle 2 support [CONTRIB-2888];
+* Initial French language pack [CONTRIB-2924].
 
 27 August-2 September 2010:
 
