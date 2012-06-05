@@ -129,15 +129,22 @@ class qtype_calculatedobjects_variable_substituter
             // Remove any [+] operators.
             $text = preg_replace('#\[[\+\-\*\/%]\]#', '', $text);
 
-            // Append the search eg. {apples} to the value, eg. 4.
+            // Append the search eg. {apples} to the value, eg. 4..
             foreach ($this->prettyvalue as $idx => $pvalue) {
                 $obj = $this->search[$idx];
-                if (preg_match('#\{(\w+?)s?(_\w)?\}#', $obj, $matches)) {
-                    // Translate/ internationalize.
-                    $obj = get_string($matches[1], 'qtype_calculatedobjects');
+                // ..except where the search is a single character, eg {n}.
+                if (strlen($obj) > 3) {
+                    if (preg_match('#\{(\w+?)s?(_\w)?\}#', $obj, $matches)) {
+                        // Translate/ internationalize.
+                        $obj = get_string($matches[1], 'qtype_calculatedobjects');
+
+                    /* Error: "Invalid get_string() identifier: 'n' or component 'qtype_calculatedobjects'...
+                    line 139 of /question/type/calculatedobjects/question.php: call to get_string() ..*/
+                    }
+                    //ELSE: error?
+
+                    $this->prettyvalue[$idx] .= ' <i>'. $obj .'</i>';
                 }
-                //ELSE: error?
-                $this->prettyvalue[$idx] .= ' <i>'. $obj .'</i>';
             }
         }
 

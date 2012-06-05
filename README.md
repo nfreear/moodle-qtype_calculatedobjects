@@ -35,6 +35,7 @@ Links
 * (Old code, CVS: <http://cvs.moodle.org/contrib/plugins/question/type/calculatedobjects/>)
 * Demo: <http://freear.org.uk/moodle>
 
+
 Releases
 --------
 Note, the version number 2.1.x-1.0 indicates that this is version 1.0 of the
@@ -45,12 +46,13 @@ There are currently two branches of development:
 * MOODLE_21_STABLE - for Moodle 2.1.x onwards, including Moodle 2.2.x - active development;
 * MOODLE_20_STABLE - for Moodle 1.9.x and Moodle 2.0.x - bug fixes only.
 
+
 Releases Notes
 --------------
 5 June 2012 / 2.1.x-1.0-beta:
 
-* Add HTML5 form validation to the student interface [CONTRIB-3687];
-* Upgrade to Moodle 2.1 question engine [CONTRIB-3684];
+* Added support for the Moodle 2.1+ question engine [CONTRIB-3684];
+* Added HTML5 form validation to the student interface [CONTRIB-3687];
 * Improvements to the popup help for authors.
 
 13 December 2011 / 0.96 RC:
@@ -75,6 +77,7 @@ Releases Notes
 8. Added support for arbitrary single-character wildcards, eg. {apples} / {n}.
 9. Support for more textual questions.
 10. Improved layout/styling.
+
 
 Install
 -------
