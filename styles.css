@@ -22,3 +22,12 @@ h3.qco-text{ font-weight:bold; margin:0 3em .7em .5em; }
 .qco-objects img{ vertical-align:middle; }
 .qco-objects .big{font-size:2em; font-style:normal;}
 
+
+
+/* Question answer UI - HTML5 styles - probably for the theme..
+.que.calculatedobjects input:focus:invalid{outline:1px solid red}
+*/
+
+/* Question editor UI - in your theme.
+#page-question-type-calculatedobjects input#id_answer_0{width:20em !important;}
+*/
