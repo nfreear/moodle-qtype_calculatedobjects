@@ -1,6 +1,6 @@
 <?php //$Id: qtype_calculatedobjects.php,v 1.2 2010/09/08 21:14:57 nfreear Exp $
 
-require_once __DIR__ .'/../../renderer.php';
+require_once __DIR__ .'/../../lib.php';
 
 
 $string['pluginname'] = 'Calculated Objects';
@@ -14,7 +14,7 @@ $string['calculatedobjectssummary']= $qco_summary =
 // Help popup - more space.
 $string['calculatedobjects_help']  =
   "<div class=qco-help>$qco_summary. Supported objects: <ul>"
-  . qtype_calculatedobjects_renderer::object_names_implode('<li>')
+  . qtype_calculatedobjects_lib::object_names_implode('<li>')
   . ' </ul></div>';
 $string['editingcalculatedobjects']= 'Editing a Calculated Objects question';
 $string['calculatedobjects_inputhint'] = 'I\'m expecting a number';

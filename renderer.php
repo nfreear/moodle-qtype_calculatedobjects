@@ -12,6 +12,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once(__DIR__ . '/lib.php');
 require_once($CFG->dirroot . '/question/type/calculated/renderer.php');
 
 
@@ -20,32 +21,11 @@ require_once($CFG->dirroot . '/question/type/calculated/renderer.php');
  */
 class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
 
-    // We have images for the following objects.
-    protected static $default_pix = array(
-        'apple' => 'apple-green-chrisdesign-75.png',
-        'orange'=> 'orange-juice-75.png',
-        'pear'  => 'pear-75.png',
-        'pineapple'=>'pineapple-75.png',
-        'cookie'=> 'cookie-tulliana-75.png',
-        'coffee'=> 'coffee-icon-75.png',
-        'walnut'=> 'walnut-60.png',
-        // New objects.
-        'cup'   => 'coffee-icon-75.png',
-        'redapple' => 'apple-red-80.png',
-        'greenapple'=>'apple-green-chrisdesign-75.png',
-        'tomato'=> 'tomato-torrent-80.png',
-        'cake'  => 'choc-cake-ill-70.png',
-        'car'   => 'car-dodge-challenger-90.png',
-        'pencil'=> 'pencil-red-emblem-75.png',
-    );
-
-    /**
-     * Get a list of available objects, joined with $glue.
-     * (Used in [QTYPE]/lang/*-/qtype_calculatedobjects.php)
-     * @return string
+    /** Get an array of available object pictures or a single picture.
+     * @return mixed
      */
-    public static function object_names_implode($glue = ', ') {
-        return implode($glue, array_keys(self::$default_pix));
+    public static function object_pix($name = NULL) {
+        return qtype_calculatedobjects_lib::object_pix($name);
     }
 
     /**
@@ -56,8 +36,6 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
 	public function formulation_and_controls(question_attempt $qa,
             question_display_options $options) {
         global $CFG;
-
-        $object_pix = self::$default_pix;
 
         $question = $qa->get_question();
         $q_values = $question->vs->get_values();
@@ -91,13 +69,13 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
                 $items = " <i class='big'>$multiply</i>";
                 $plains[] = $items;
             }
-            elseif (!isset($object_pix[$class])) { #in_array($class, self::$wildcards)) {
+            elseif (! self::object_pix($class)) {
                 // Error.
                 $class = 'unknown';
                 $items = " <i>?</i>";
                 $plains[] = $items;
             } else {
-                $pix = $object_pix[$class];
+                $pix = self::object_pix($class);
                 global $CFG;
                 $src = "$CFG->wwwroot/question/type/calculatedobjects/pix/$pix";
                 $item = "<img\n alt='' src='$src' />";
