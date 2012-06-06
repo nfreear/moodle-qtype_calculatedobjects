@@ -17,8 +17,9 @@ require_once($CFG->dirroot . '/question/type/calculated/question.php');
 if (!function_exists('_MY_debug')) {
 
 function _MY_debug($exp) {
+  global $CFG;
   static $where, $count = 0;
-  //if (isset($_GET['debug']) /*|| variable_get('debug', NULL)*/ ) {
+  if (isset($_GET['debug']) || (isset($CFG->debug) && $CFG->debug)) { #>debugdisplay
     # $where could be based on __FUNCTION__ or debug_stacktrace().
     if(!$where) $where = str_replace(array('_', '.'), '-', basename(__FILE__));
     header("X-D-$where-".sprintf('%02d', $count).': '.json_encode($exp));
@@ -27,7 +28,7 @@ function _MY_debug($exp) {
       if($c > 0) _MY_debug($arg); #Recurse.
     }
     $count++;
-  //}
+  }
 }
 }
 
@@ -59,17 +60,10 @@ class qtype_calculatedobjects_question extends qtype_calculated_question
 }
 
 
-/**
- * Copied from parent and modified.
+/** Question helper class (copied from parent and modified).
  */
 abstract class qtype_calculatedobjects_question_helper
         extends qtype_calculated_question_helper {
-
-    public static function ___start_attempt(
-            qtype_calculated_question_with_expressions $question,
-            question_attempt_step $step, $variant) {
-    }
-
 
     public static function apply_attempt_state(
             qtype_calculated_question_with_expressions $question, question_attempt_step $step) {
@@ -90,6 +84,8 @@ abstract class qtype_calculatedobjects_question_helper
 }
 
 
+/** Variable substituter class.
+ */
 class qtype_calculatedobjects_variable_substituter
         extends qtype_calculated_variable_substituter {
 

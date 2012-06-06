@@ -22,8 +22,8 @@ require_once("$CFG->dirroot/question/type/calculated/questiontype.php");
 class qtype_calculatedobjects extends qtype_calculated {
     //(...extends question_dataset_dependent_questiontype)
 
-    // Object images.. -- SEE: renderer.php
-    protected static $default_pix = array();
+    // Object images $default_pix.. -- SEE: renderer.php
+
 
     // Moodle 2.0 specific - test!
     public function __construct() {
@@ -35,35 +35,20 @@ class qtype_calculatedobjects extends qtype_calculated {
         return parent::__construct();
     }
 
-    public function name() {
+    public function __name() { // Legacy.
         return 'calculatedobjects';
     }
-
-    public function requires_qtypes() {
+    public function __requires_qtypes() { // Legacy.
         return array('calculated');
-        //N: return array('numerical');
     }
 
-    /** SEE renderer.php
+    /** Legacy. SEE renderer.php
      */
-    function __print_question_formulation_and_controls(&$question, &$state, $cmoptions, $options) {
-        // Substitute variables in questiontext before giving the data to the
-        // virtual type for printing
-        $virtualqtype = $this->get_virtual_qtype();
+    function __print_question_formulation_and_controls(&$question, &$stat /*..*/) {}
 
-        //...
-    }
+    public function __get_virtual_qtype() { } // Parent.
 
-    function __create_virtual_qtype() {
-        global $CFG;
-        require_once("$CFG->dirroot/question/type/numerical/questiontype.php");
-        return new question_numerical_qtype();
-    }
-
-    function supports_dataset_item_generation() {
-    // Calculated support generation of randomly distributed number data
-        return true;
-    }
+    public function __supports_dataset_item_generation() { } // Parent.
 
     function __dataset_options($form, $name, $mandatory=true, $renameabledatasets=false) {
     // Takes datasets from the parent implementation but
@@ -81,9 +66,10 @@ class qtype_calculatedobjects extends qtype_calculated {
     }
 
 
-    function __substitute_variables($str, $dataset) {
-    }
+    public function __substitute_variables($str, $dataset) { } // Legacy.
 
+
+  // Legacy.
   /**
    * Runs all the code required to set up and save an essay question for testing purposes.
    * Alternate DB table prefix may be used to facilitate data deletion.
@@ -135,11 +121,9 @@ class qtype_calculatedobjects extends qtype_calculated {
 
 
 
-//////////////////////////////////////////////////////////////////////////
-//// INITIATION - Without this line the question type is not in use... ///
-//////////////////////////////////////////////////////////////////////////
+// Moodle < 2.1: INITIATION - Without this line the question type is not in use..
 
-if (function_exists('question_register_questiontype')) {
+if (function_exists('question_register_questiontype')) { // Legacy.
     //N: Moodle < 2.1 compatibility.
     class question_calculatedobjects_qtype extends qtype_calculatedobjects {}
 
@@ -167,13 +151,11 @@ function __qtype_calculatedobjects_calculate_answer($formula, $individualdata,
 }
 
 
-function __qtype_calculatedobjects_find_formula_errors($formula) { #@TODO.N.
+function __qtype_calculatedobjects_find_formula_errors($formula) { // Parent.
 /// Validates the formula submitted from the question edit page.
 /// Returns false if everything is alright.
-/// Otherwise it constructs an error message
-
     //...
-    
+
     //} else {
         // Formula just might be valid
         return false;

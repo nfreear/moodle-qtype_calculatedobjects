@@ -101,7 +101,6 @@ TODO/ limitations:
 * Add support for multiple operators (currently only 1 supported).
 * Test with browsers.
 * More testing of backup and restore.
-* Evaluate ereg and preg* calls.
 * Work on validation functions (qtype_calculatedobjects_find_formula_errors).
 * Tidy up.
 * If there's demand, add ability to use custom icons/images.
