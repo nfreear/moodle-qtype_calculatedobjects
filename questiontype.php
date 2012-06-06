@@ -22,7 +22,7 @@ require_once("$CFG->dirroot/question/type/calculated/questiontype.php");
 class qtype_calculatedobjects extends qtype_calculated {
     //(...extends question_dataset_dependent_questiontype)
 
-    // Object images $default_pix.. -- SEE: renderer.php
+    // Object images $default_pix.. -- SEE: lib.php
 
 
     // Moodle 2.0 specific - test!
@@ -34,17 +34,6 @@ class qtype_calculatedobjects extends qtype_calculated {
         }
         return parent::__construct();
     }
-
-    public function __name() { // Legacy.
-        return 'calculatedobjects';
-    }
-    public function __requires_qtypes() { // Legacy.
-        return array('calculated');
-    }
-
-    /** Legacy. SEE renderer.php
-     */
-    function __print_question_formulation_and_controls(&$question, &$stat /*..*/) {}
 
     public function __get_virtual_qtype() { } // Parent.
 
@@ -64,9 +53,6 @@ class qtype_calculatedobjects extends qtype_calculated {
 
         return array($options, $selected);
     }
-
-
-    public function __substitute_variables($str, $dataset) { } // Legacy.
 
 
   // Legacy.
@@ -120,15 +106,6 @@ class qtype_calculatedobjects extends qtype_calculated {
 //// END OF CLASS ////
 
 
-
-// Moodle < 2.1: INITIATION - Without this line the question type is not in use..
-
-if (function_exists('question_register_questiontype')) { // Legacy.
-    //N: Moodle < 2.1 compatibility.
-    class question_calculatedobjects_qtype extends qtype_calculatedobjects {}
-
-    question_register_questiontype(new question_calculatedobjects_qtype());
-}
 
 
 function __qtype_calculatedobjects_calculate_answer($formula, $individualdata,
