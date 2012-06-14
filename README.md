@@ -49,13 +49,17 @@ There are currently two branches of development:
 
 Releases Notes
 --------------
+14 June 2012 / 2.1.x-1.1-beta:
+
+* Added to README 'install' section; fixed $plugin->requires.
+
 5 June 2012 / 2.1.x-1.0-beta:
 
 * Added support for the Moodle 2.1+ question engine [CONTRIB-3684];
 * Added HTML5 form validation to the student interface [CONTRIB-3687];
 * Improvements to the popup help for authors.
 
-13 December 2011 / 0.96 RC:
+13 December 2011 / 2.0.x-0.96-rc:
 
 * Fixed requires bug in version.php [CONTRIB-3301].
 
@@ -81,8 +85,9 @@ Releases Notes
 
 Install
 -------
-1. Download and unzip the archive. Copy the directory 'calculatedobjects' into the directory `{MOODLE}/question/type/` on your server.
-2. Visit the administrator 'notifications' page, `http://moodle.example.org/admin/` - there are no database changes for this question type.
+1. Download and uncompress the archive. The resulting directory may look something like `nfreear-moodle-qtype_calculatedobjects-1234567`.
+2. Copy the it into the directory `{MOODLE}/question/type/` on your server and rename it `calculatedobjects` (no underscore).
+3. Visit the administrator 'notifications' page, `http://moodle.example.org/admin/` - there are no database changes for this question type.
 
 (Note, English language strings, help file, and styles will be auto-included.)
 
@@ -91,7 +96,7 @@ Upgrade
 To upgrade from previous versions:
 
 1. Delete the `question/type/calculatedobjects` directory.
-2. Delete `{MOODLE}/lang/en_utf8/help/quiz/calculatedobjects.html`
+2. Delete `{MOODLE}/lang/en_utf8/help/quiz/calculatedobjects.html` (Moodle < 2.0)
 3. Follow the install instructions above.
 
 Notes
