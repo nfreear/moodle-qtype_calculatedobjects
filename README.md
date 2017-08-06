@@ -8,7 +8,7 @@ It is aimed at pre/primary-school students (approximately age 3-9).
 
 Note, this question type uses the database tables of the 'calculated' question type.
 
-Tested with Moodle 1.9.7, 2.0.2 and 2.2.3.
+Tested with Moodle 3.3.1
 
 
 Currently supported wildcards:
@@ -41,14 +41,21 @@ Releases
 Note, the version number 2.1.x-1.0 indicates that this is version 1.0 of the
 plugin for version 2.1.x onwards of Moodle (this follows the Drupal model).
 
-There are currently two branches of development:
+There were originally two branches of development:
 
 * MOODLE_21_STABLE - for Moodle 2.1.x onwards, including Moodle 2.2.x - active development;
 * MOODLE_20_STABLE - for Moodle 1.9.x and Moodle 2.0.x - bug fixes only.
 
+The current branch is for Moodle 3.3
+* MOODLE_33_STABLE -  for Moodle 3.3.x onwards - active development
+
 
 Releases Notes
 --------------
+
+05 August 2017 / 3.1.x 2.0-beta
+* Changes made to reduce the number of errors reported by code checker plugin
+
 14 June 2012 / 2.1.x-1.1-beta:
 
 * Added to README 'install' section; fixed $plugin->requires.
