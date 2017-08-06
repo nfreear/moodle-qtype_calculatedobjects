@@ -1,4 +1,19 @@
 <?php
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
  * Calculated Objects question definition class.
  *
@@ -16,20 +31,20 @@ require_once($CFG->dirroot . '/question/type/calculated/question.php');
 
 if (!function_exists('_MY_debug')) {
 
-function _MY_debug($exp) {
-  global $CFG;
-  static $where, $count = 0;
-  if (isset($_GET['debug']) || (isset($CFG->debug) && $CFG->debug)) { #>debugdisplay
-    # $where could be based on __FUNCTION__ or debug_stacktrace().
-    if(!$where) $where = str_replace(array('_', '.'), '-', basename(__FILE__));
-    header("X-D-$where-".sprintf('%02d', $count).': '.json_encode($exp));
+    function _my_debug($exp) {
+        global $CFG;
+        static $where, $count = 0;
+        if (isset($_GET['debug']) || (isset($CFG->debug) && $CFG->debug)) { #>debugdisplay
+            # $where could be based on __FUNCTION__ or debug_stacktrace().
+            if(!$where) $where = str_replace(array('_', '.'), '-', basename(__FILE__));
+            header("X-D-$where-".sprintf('%02d', $count).': '.json_encode($exp));
 
-    foreach (func_get_args() as $c => $arg) {
-      if($c > 0) _MY_debug($arg); #Recurse.
+            foreach (func_get_args() as $c => $arg) {
+                if($c > 0) _MY_debug($arg); #Recurse.
+            }
+            $count++;
+        }
     }
-    $count++;
-  }
-}
 }
 
 
@@ -40,21 +55,21 @@ function _MY_debug($exp) {
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qtype_calculatedobjects_question extends qtype_calculated_question
-//N: class qtype_calculated_question extends qtype_numerical_question
+// N: class qtype_calculated_question extends qtype_numerical_question
         implements qtype_calculated_question_with_expressions {
 
     public function __start_attempt(question_attempt_step $step, $variant) {
     }
 
 
-    /// THE route in!
+    // Comment / THE route in!
 
     /**
      * Copied from parent and modified.
      */
     public function apply_attempt_state(question_attempt_step $step) {
         qtype_calculatedobjects_question_helper::apply_attempt_state($this, $step);
-        //parent::apply_attempt_state($step);
+        // parent::apply_attempt_state($step);
     }
 
 }
@@ -114,7 +129,7 @@ class qtype_calculatedobjects_variable_substituter
      */
     protected function substitute_values_pretty($text) {
 
-        if (FALSE !== strpos($text, '{')) {
+        if (false !== strpos($text, '{')) {
             #$this->_copy_questiontext = $text;
 
             // Take a copy of any [+] operators - a bit of a hack!
@@ -137,7 +152,7 @@ class qtype_calculatedobjects_variable_substituter
                     /* Error: "Invalid get_string() identifier: 'n' or component 'qtype_calculatedobjects'...
                     line 139 of /question/type/calculatedobjects/question.php: call to get_string() ..*/
                     }
-                    //ELSE: error?
+                    // ELSE: error?
 
                     $this->prettyvalue[$idx] .= ' <i>'. $obj .'</i>';
                 }
