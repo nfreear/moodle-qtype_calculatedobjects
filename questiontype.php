@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-// $Id$
+// Comment $Id$ !
 /**
  * The CALCULATED OBJECTS question type.
  *
@@ -30,15 +30,15 @@
  * (Useful searches: 'calculated[objects]', qtype_calculated, 'question_calculated'.)
  */
 
-// Comment QUESTION TYPE CLASS
+// Comment QUESTION TYPE CLASS !
 require_once("$CFG->dirroot/question/type/calculated/questiontype.php");
 
 
 // Moodle 2.1+ compatible class names.
 class qtype_calculatedobjects extends qtype_calculated {
-    // (...extends question_dataset_dependent_questiontype)
+    // Comment (...extends question_dataset_dependent_questiontype) !
 
-    // Object images $default_pix.. -- SEE: lib.php
+    // Comment Object images $default_pix.. -- SEE: lib.php !
 
 
     // Moodle 2.0 specific - test!
@@ -46,24 +46,30 @@ class qtype_calculatedobjects extends qtype_calculated {
         global $PAGE;
         if (isset($PAGE->requires)) {
             $PAGE->requires->css(
-            'question/type/calculatedobjects/styles.css');#css.php?d='.$data->id)
+            'question/type/calculatedobjects/styles.css');
+            // Comment #css.php?d='.$data->id) !
         }
         return parent::__construct();
     }
 
-    public function __get_virtual_qtype() { } // Parent.
+    public function __get_virtual_qtype() {
+    }
+       // Parent.
 
-    public function __supports_dataset_item_generation() { } // Parent.
+    public function __supports_dataset_item_generation() {
+    }
+        // Parent.
 
     function __dataset_options($form, $name, $mandatory=true, $renameabledatasets=false) {
         // Takes datasets from the parent implementation but
         // filters options that are currently not accepted by calculated
         // It also determines a default selection...
-        // $renameabledatasets not implemented anywhere
+        // $renameabledatasets not implemented anywhere .
         list($options, $selected) = parent::dataset_options($form, $name, '', 'qtype_calculatedobjects');
-        // list($options, $selected) = $this->dataset_optionsa($form, $name);
+        // Comment list($options, $selected) = $this->dataset_optionsa($form, $name); !
 
-        $type = 1; // Only type = 1 (i.e. old 'LITERAL') has ever been used
+        $type = 1;
+        // Only type = 1 (i.e. old 'LITERAL') has ever been used !
 
         // ...
 
@@ -82,7 +88,8 @@ class qtype_calculatedobjects extends qtype_calculated {
         $form->multiplier = array(1, 1);
         $form->shuffleanswers = 1;
         $form->noanswers = 1;
-        $form->qtype = 'calculated';  #@TODO.N. Do we change this line? (Change next ones!)
+        $form->qtype = 'calculated';
+        // Comment #@TODO.N. Do we change this line? (Change next ones!) !
         $question->qtype = 'calculatedobjects';
         $form->answers = array('{apples} + {oranges}');
         $form->fraction = array(1);
@@ -96,45 +103,45 @@ class qtype_calculatedobjects extends qtype_calculated {
             $course = get_record('course', 'id', $courseid);
         }
 
-        $new_question = $this->save_question($question, $form, $course);
+        $newquestion = $this->save_question($question, $form, $course);
 
-        $dataset_form = new stdClass();
-        $dataset_form->nextpageparam["forceregeneration"] = 1;
-        $dataset_form->calcmin = array(1 => 1.0, 2 => 1.0);
-        $dataset_form->calcmax = array(1 => 10.0, 2 => 10.0);
-        $dataset_form->calclength = array(1 => 1, 2 => 1);
-        $dataset_form->number = array(1 => 5.4 , 2 => 4.9);
-        $dataset_form->itemid = array(1 => '' , 2 => '');
-        $dataset_form->calcdistribution = array(1 => 'uniform', 2 => 'uniform');
-        $dataset_form->definition = array(1 => "1-0-a",
+        $datasetform = new stdClass();
+        $datasetform->nextpageparam["forceregeneration"] = 1;
+        $datasetform->calcmin = array(1 => 1.0, 2 => 1.0);
+        $datasetform->calcmax = array(1 => 10.0, 2 => 10.0);
+        $datasetform->calclength = array(1 => 1, 2 => 1);
+        $datasetform->number = array(1 => 5.4 , 2 => 4.9);
+        $datasetform->itemid = array(1 => '' , 2 => '');
+        $datasetform->calcdistribution = array(1 => 'uniform', 2 => 'uniform');
+        $datasetform->definition = array(1 => "1-0-a",
                                         2 => "1-0-b");
-        $dataset_form->nextpageparam = array('forceregeneration' => false);
-        $dataset_form->addbutton = 1;
-        $dataset_form->selectadd = 1;
-        $dataset_form->courseid = $courseid;
-        $dataset_form->cmid = 0;
-        $dataset_form->id = $new_question->id;
-        $this->save_dataset_items($new_question, $dataset_form);
+        $datasetform->nextpageparam = array('forceregeneration' => false);
+        $datasetform->addbutton = 1;
+        $datasetform->selectadd = 1;
+        $datasetform->courseid = $courseid;
+        $datasetform->cmid = 0;
+        $datasetform->id = $newquestion->id;
+        $this->save_dataset_items($newquestion, $datasetform);
 
-          return $new_question;
+          return $newquestion;
     }
 }
-// Comment END OF CLASS //
+// Comment END OF CLASS // !
 
 
 
 
 function __qtype_calculatedobjects_calculate_answer($formula, $individualdata,
     $tolerance, $tolerancetype, $answerlength, $answerformat = '1', $unit = '') {
-    // The return value has these properties:
-    // ->answer    the correct answer
-    // ->min       the lower bound for an acceptable response
-    // ->max       the upper bound for an accetpable response
+    // Comment The return value has these properties:
+    // Comment ->answer    the correct answer !
+    // Comment ->min       the lower bound for an acceptable response !
+    // Comment ->max       the upper bound for an accetpable response !
 
-    // Exchange formula variables with the correct values...
+    // Comment Exchange formula variables with the correct values...
     $answer = question_bank::get_qtype('calculated')->substitute_variables_and_eval(
             $formula, $individualdata);
-    // if ('1' = $answerformat) { /* Answer is to have $answerlength decimals */
+    // Comment if ('1' == $answerformat) { /* Answer is to have $answerlength decimals */
     $calculated = null;
 
     // ...
@@ -150,8 +157,8 @@ function __qtype_calculatedobjects_find_formula_errors($formula) {
     // Comment Returns false if everything is alright.
         // ...
 
-        // } else {
-        // Formula just might be valid
+        // } else { !
+        // Formula just might be valid !
         return false;
-    // }
+    // } !
 }

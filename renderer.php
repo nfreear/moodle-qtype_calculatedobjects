@@ -53,24 +53,24 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
         global $CFG;
 
         $question = $qa->get_question();
-        $q_values = $question->vs->get_values();
-        $q_operators = $question->vs->get_maths_operators();
+        $qvalues = $question->vs->get_values();
+        $qoperators = $question->vs->get_maths_operators();
 
         // Find the first math operator/symbol (+-*/)
         // - prevent mis-matches on <br /> etc. below.
         $classes = '';
-        $op = $op_replace = '+';
+        $op = $opreplace = '+';
 
-        $ops= array('+' => '+', '-' => '&ndash;', '*' => '&times;', '/' => '<hr class="o"/>', '%' => '%');
-        $op = $q_operators[1];
-        $op_replace = $ops[$q_operators[1]];
+        $ops = array('+' => '+', '-' => '&ndash;', '*' => '&times;', '/' => '<hr class ="o"/>', '%' => '%');
+        $op = $qoperators[1];
+        $opreplace = $ops[$qoperators[1]];
         if ('/' == $op) {
             $classes .= 'vertical';
         }
 
         $objects = $patterns = $plains = array();
 
-        foreach ($q_values as $key => $multiply) {
+        foreach ($qvalues as $key => $multiply) {
 
             // Trim plural 's' and check against supported wildcards.
             // (Later we may take the first or last '-' separated token(s). For $class='file-uploads-apple-2')
@@ -81,8 +81,7 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
                 $class = $key;
                 $items = " <i class='big'>$multiply</i>";
                 $plains[] = $items;
-            }
-            else if (! self::object_pix($class)) {
+            } else if (! self::object_pix($class)) {
                 // Error.
                 $class = 'unknown';
                 $items = " <i>?</i>";
@@ -112,38 +111,36 @@ class qtype_calculatedobjects_renderer extends qtype_calculated_renderer {
             }*/
         }
 
-
         // Create the objects/pictures string.
-        $object_str = $objects[0] ."<p class='op $classes'>$op_replace</p>". $objects[1];
-        #$plain_str = str_replace($patterns, $plains, $qtext);
-        #$plain_str = preg_replace("#\[[\+\-\*\/%]\]#", '', $plain_str);
+        $objectstr = $objects[0] ."<p class='op $classes'>$op_replace</p>". $objects[1];
+        // Comment #$plain_str = str_replace($patterns, $plains, $qtext);
+        // Comment #$plain_str = preg_replace("#\[[\+\-\*\/%]\]#", '', $plain_str);
 
-
-        $qtext_answer = parent::formulation_and_controls($qa, $options);
+        $qtextanswer = parent::formulation_and_controls($qa, $options);
 
         // HTML5 form validation.
         if (!isset($CFG->calculatedobjects_html5) || $CFG->calculatedobjects_html5 == true) {
             $hint = get_string('calculatedobjects_inputhint', 'qtype_calculatedobjects');
-            $qtext_answer = preg_replace('#(<input[^>]*name="q\d+:\d+_answer")#',
+            $qtextanswer = preg_replace('#(<input[^>]*name="q\d+:\d+_answer")#',
                 '$1 pattern="-?\d{1,3}(\.\d*)?" maxlength="6" required title="'. $hint .'"',
-                $qtext_answer);
+                $qtextanswer);
         }
 
-        #<h3 class="qco-text">$plain_str</h3>
+        // Comment #<h3 class="qco-text">$plain_str</h3>
 
-        $qco_objects = <<<EOT
+        $qcoobjects = <<<EOT
         <div class="qco-objects $classes">$object_str
         <br style="clear:both;height:1px;" /></div>
 EOT;
 
         // Optionally, start with the pictures then the text question..
         if (isset($CFG->calculatedobjects_pix_first)) {
-            return $qco_objects . $qtext_answer;
+            return $qcoobjects . $qtextanswer;
         }
 
         // Default: put the pictures between the question and the answer block.
-        $ablock_start = '<div class="ablock">';
-        return str_replace($ablock_start,
-           $qco_objects . $ablock_start, $qtext_answer);
+        $ablockstart = '<div class="ablock">';
+        return str_replace($ablockstart,
+           $qcoobjects . $ablockstart, $qtextanswer);
     }
 }

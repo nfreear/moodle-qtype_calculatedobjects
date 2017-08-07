@@ -30,9 +30,9 @@ $string['pluginnamesummary'] = 'An extension of calculated questions which allow
 $string['addingcalculatedobjects'] = 'Adding a Calculated Objects question';
 $string['calculatedobjects']       = 'Calculated Objects';
 // New question popup - restricted space.
-$string['calculatedobjectssummary'] = $qco_summary = 'An extension of calculated questions which allows you to quickly set questions like "<em>How much is {apples} + {oranges}?</em>" They are like numerical questions but with the numbers used selected randomly from a set when the quiz is taken.';
+$string['calculatedobjectssummary'] = $qcosummary = 'An extension of calculated questions which allows you to quickly set questions like "<em>How much is {apples} + {oranges}?</em>" They are like numerical questions but with the numbers used selected randomly from a set when the quiz is taken.';
 // Help popup - more space.
-$string['calculatedobjects_help']  = "<div class=qco-help>$qco_summary. Supported objects: <ul>"
+$string['calculatedobjects_help']  = "<div class=qco-help>$qcosummary. Supported objects: <ul>"
   . qtype_calculatedobjects_lib::object_names_implode('<li>')
   . ' </ul></div>';
 $string['editingcalculatedobjects'] = 'Editing a Calculated Objects question';

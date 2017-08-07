@@ -40,7 +40,7 @@ function qtype_calculatedobjects_pluginfile($course, $cm, $context, $filearea, $
 class qtype_calculatedobjects_lib {
 
     // We have images for the following objects.
-    protected static $default_pix = array(
+    protected static $defaultpix = array(
         'apple' => 'apple-green-chrisdesign-75.png',
         'orange' => 'orange-juice-75.png',
         'pear'  => 'pear-75.png',
@@ -64,14 +64,16 @@ class qtype_calculatedobjects_lib {
      * @return string
      */
     public static function object_names_implode($glue = ', ') {
-        return implode($glue, array_keys(self::$default_pix));
+        return implode($glue, array_keys(self::$defaultpix));
     }
 
     /** Get an array of available object pictures or a single picture.
      * @return mixed
      */
     public static function object_pix($name = null) {
-        if (!$name) return self::$default_pix;
-        return isset(self::$default_pix[$name]) ? self::$default_pix[$name] : NULL;
+        if (!$name) {
+            return self::$defaultpix;
+        }
+        return isset(self::$defaultpix[$name]) ? self::$defaultpix[$name] : null;
     }
 }

@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-// $Id: edit_calculatedobjects_form.php,v 1.1 2010/09/04 11:36:31 deraadt Exp $
+// Comment $Id: edit_calculatedobjects_form.php,v 1.1 2010/09/04 11:36:31 deraadt Exp $ !
 /**
  * Defines the editing form for the calculated objects question type.
  *
