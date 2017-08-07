@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die();
 
 
 $plugin->component = 'qtype_calculatedobjects';
-$plugin->version  = 2012061400;
+$plugin->version  = 2017060800;
 
 $plugin->requires = 2011070100;    // Moodle 2.1 official.
 $plugin->requires_human = '2.1.x'; // NDF: my idea!
@@ -40,5 +40,5 @@ $plugin->dependencies = array(
 // 'qtype_calculated' => 2011102700,
 );
 $plugin->cron     = 0;           // Period for cron to check this module (secs)
-$plugin->release  = '2.1.x-1.1 (Build: 2012061400)'; // User-friendly version number .
+$plugin->release  = '3.3.x-1.1 (Build: 2017060800)'; // User-friendly version number .
 $plugin->maturity  = MATURITY_BETA;
