@@ -26,12 +26,14 @@ published 2011 by Packt Publishing [isbn:978-1-84951-328-9]
 
 Links
 -----
+* Moodle Documentation: <https://docs.moodle.org/33/en/Calculated_Objects_question_type>
 * Moodle plugin entry: <http://moodle.org/plugins/view.php?plugin=qtype_calculatedobjects>
 * (Old plugin page: <http://moodle.org/mod/data/view.php?rid=4143>)
 * Wiki: <http://docs.moodle.org/en/Calculated_Objects_question_type>
 * Discussion: <http://moodle.org/mod/forum/discuss.php?d=156605>
 * Bugs: <http://tracker.moodle.org/browse/CONTRIB/component/10720>
-* Code, Git: <https://github.com/nfreear/moodle-qtype_calculatedobjects>
+* New Code, Git: <https://github.com/germanvaleroelizondo/moodle-qtype_calculatedobjects>
+* Original Code, Git: <https://github.com/nfreear/moodle-qtype_calculatedobjects>
 * (Old code, CVS: <http://cvs.moodle.org/contrib/plugins/question/type/calculatedobjects/>)
 * Demo: <http://freear.org.uk/moodle>
 
@@ -86,7 +88,7 @@ Releases Notes
 
 Install
 -------
-1. Download and uncompress the archive. The resulting directory may look something like `nfreear-moodle-qtype_calculatedobjects-1234567`.
+1. Download and uncompress the archive. The resulting directory may look something like `moodle-qtype_calculatedobjects-MOODLE_33_STABLE`.
 2. Copy the it into the directory `{MOODLE}/question/type/` on your server and rename it `calculatedobjects` (no underscore).
 3. Visit the administrator 'notifications' page, `http://moodle.example.org/admin/` - there are no database changes for this question type.
 
