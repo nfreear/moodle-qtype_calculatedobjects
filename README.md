@@ -50,7 +50,15 @@ There is currently one branch of development:
 
 Releases Notes
 --------------
-06 August 2017 / 3.3.x-1.1 beta:
+08 August 2017 / 3.3.x-1.1 beta:
+* Added several needed English language strings. This eliminated many errors in Moodle 3.3
+* Changed the indentation of many lines as nstructed by the Moodle Code Checker additionalplugin
+* Added spaces needed for indentation
+* Replaced TABS with spaces in indentations
+* Changed PERL style comments into // Comments
+* Added ! character at the end of comment lines as requested by Code Checker
+* Added { and } characters to some code lines in order to fix errors
+* Added all the compulsory // Comments about Moodle and GPL to all the files that needed them as per Moodle Coding Guide
 
 14 June 2012 / 2.1.x-1.1-beta:
 
