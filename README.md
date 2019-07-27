@@ -111,6 +111,14 @@ TODO/ limitations:
 * If there's demand, add ability to use custom icons/images.
 * If there's demand, translation.
 
+* Please look at Moodle documentation about plugins with missing strings in AMOS at https://docs.moodle.org/dev/Translating_plugins#Plugins_with_coding_errors :
+
+The plugin code must not rely on trailing and leading whitespace in strings.
+The string file must be considered as pure data file with the syntax $string['id'] = 'value';
+No other PHP syntax such as concatenation, heredoc and nowdoc is supported by the tools that AMOS use when processing the strings (even if it may work in Moodle itself).
+Use neither string concatenation operators nor other PHP logic inside string files. Those should really be considered as plain data files with simple $string['key'] = 'value'; syntax, nothing more.
+
+
 Credits
 -------
 Calculated Objects question type. Copyright © 2010 Nicholas Freear.
